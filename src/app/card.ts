@@ -1,5 +1,6 @@
 export interface Card {
     id: number;
     name: string;
-    description: string
+    description: string;
+    userWhoPostedIt: string;
   }

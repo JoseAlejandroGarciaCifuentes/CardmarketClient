@@ -11,26 +11,31 @@ import { CardService } from '../card.service';
 })
 export class CardDetailComponent implements OnInit {
 
-  @Input() card: Card;
+  card: Card;
 
   constructor(
-  private route: ActivatedRoute,
-  private cardService: CardService,
-  private location: Location
-) {}
+    private route: ActivatedRoute,
+    private cardService: CardService,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
-  this.getCard();
-}
+    this.getCard();
+  }
 
-getCard(): void {
-  const id = +this.route.snapshot.paramMap.get('id');
-  this.cardService.getCard(id)
-    .subscribe(card => this.card = card);
-}
+  getCard(): void {
+    const name = this.route.snapshot.paramMap.get('name');
+    this.cardService.getCard(name)
+      .subscribe(card => this.card = card);
+  }
 
-goBack(): void {
+  goBack(): void {
     this.location.back();
+  }
+
+  save(): void {
+    this.cardService.updateCard(this.card)
+      .subscribe(() => this.goBack());
   }
 
 }
