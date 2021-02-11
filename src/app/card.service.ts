@@ -17,8 +17,14 @@ export class CardService {
   }*/
 
   getCards(): Observable<Card[]> {
-  const cards = of(CARDS);
-  this.messageService.add('CardService: fetched cards');
-  return cards;
+    const cards = of(CARDS);
+    this.messageService.add('CardService: fetched cards');
+    return cards;
+  }
+
+  getCard(id: number): Observable<Card> {
+  // TODO: send the message _after_ fetching the card
+    this.messageService.add(`CardService: fetched card id=${id}`);
+    return of(CARDS.find(card => card.id === id));
   }
 }
