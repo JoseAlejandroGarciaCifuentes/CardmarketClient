@@ -3,14 +3,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { CardsComponent } from './cards/cards.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardDetailComponent } from './card-detail/card-detail.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { UserRegisterComponent } from './user-register/user-register.component';
+import { HomeComponent } from './home/home.component';
+
 
 
 //path is the URL, equivalent to localhost:4200/cards.
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  //{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'cards', component: CardsComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'detail/:name', component: CardDetailComponent }
+  { path: 'detail/:name', component: CardDetailComponent },
+  { path: 'register', component: UserRegisterComponent },
+  { path: 'login', component: UserLoginComponent },
+  { path: 'home', component: HomeComponent }
 ];
 
 @NgModule({

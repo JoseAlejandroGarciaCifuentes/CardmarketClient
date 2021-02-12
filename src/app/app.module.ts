@@ -11,6 +11,9 @@ import { MessageService } from './message.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardSearchComponent } from './card-search/card-search.component'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { UserRegisterComponent } from './user-register/user-register.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { HttpClientModule } from '@angular/common/http';
     CardDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    CardSearchComponent
+    CardSearchComponent,
+    UserLoginComponent,
+    UserRegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
