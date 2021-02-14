@@ -9,7 +9,7 @@ import { UserService } from '../user.service';
 })
 export class UserRegisterComponent implements OnInit {
 
-  user:User;
+  user:User = <User>{email:"", password:"", role:"Individual", username:""};
 
   form: any = {
     username: null,
@@ -23,26 +23,27 @@ export class UserRegisterComponent implements OnInit {
   constructor(private userService:UserService/*private authService: AuthService*/) { }
 
   ngOnInit(): void {
+    //this.user = <User>{email:"", password:"", role:"Individual", username:""};
   }
 
   onSubmit(): void {
     const { username, email, password } = this.form;
-    this.user.email = "angular@gmail.com";
-    this.user.password = "1234";
-    this.user.role = "Individual";
-    this.user.username = "angular";
+
+    console.log(email);
+    this.user.email = email;
+    this.user.password = password;
+    this.user.username = username;
     
-    /*this.userService.registerUser("angular", "1234", "angular@gmail.com", "Individual").subscribe(
-      data => {
-        console.log(data);
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
-      }
-    );*/
+    this.userService.registerUser(this.user).subscribe(data => {
+      console.log(data);
+      this.isSuccessful = true;
+      this.isSignUpFailed = false;
+    },
+    err => {
+      this.errorMessage = err.error.message;
+      this.isSignUpFailed = true;
+    }
+    );
     
   }
 }

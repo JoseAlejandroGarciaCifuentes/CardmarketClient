@@ -12,11 +12,12 @@ import { MessageService } from './message.service';
 })
 export class UserService {
 
-  private registerUserUrl = 'http://localhost:8888/Laravel/cardmarket/public/api/users/signup';
-  private loginUserUrl = 'http://localhost:8888/Laravel/cardmarket/public/api/users/login';
+  private registerUserUrl = 'http://localhost/Laravel/cardmarket/public/api/users/signup';
+  private loginUserUrl = 'http://localhost/Laravel/cardmarket/public/api/users/login';
   
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+
   };
 
   constructor(private http: HttpClient,
@@ -25,9 +26,18 @@ export class UserService {
   /** POST: add a new user to the server */
   registerUser(user:User): Observable<User> {
     return this.http.post<User>(this.registerUserUrl, user, this.httpOptions).pipe(
-      tap((newUser: User) => this.log(`added user w/ id=${newUser.username}`)),
+      tap((newUser: User) => this.log(`added user w/ username=${newUser.username}`)),
       catchError(this.handleError<User>('registerUser'))
     );
+  }
+
+  /** POST: add a new user to the server */
+  loginUser(username:string, password:string): Observable<any> {
+
+    return this.http.post(this.loginUserUrl, {username, password}, this.httpOptions).pipe(
+      tap(_ => this.log(`login username=${username}`)),
+      catchError(this.handleError<any>('loginUser'))
+      );
   }
 
   /**
