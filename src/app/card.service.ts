@@ -11,7 +11,7 @@ import { MessageService } from './message.service';
 @Injectable({ providedIn: 'root' })
 export class CardService {
 
-  private getAll = 'http://localhost/Laravel/cardmarket/public/api/cards/all';
+  private getAll = 'http://localhost:8888/Laravel/cardmarket/public/api/cards/all';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

@@ -8,7 +8,7 @@ import { CardService } from '../card.service';
   styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent implements OnInit {
-  cards: Card[] = [];
+  cards: Card[];
 
   constructor(private cardService: CardService) { }
 
