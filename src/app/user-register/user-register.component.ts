@@ -20,16 +20,15 @@ export class UserRegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private userService:UserService/*private authService: AuthService*/) { }
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
-    //this.user = <User>{email:"", password:"", role:"Individual", username:""};
+    
   }
 
   onSubmit(): void {
     const { username, email, password } = this.form;
 
-    console.log(email);
     this.user.email = email;
     this.user.password = password;
     this.user.username = username;

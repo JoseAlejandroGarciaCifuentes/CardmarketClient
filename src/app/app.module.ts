@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { HomeComponent } from './home/home.component';
+import { CollectionComponent } from './collection/collection.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HomeComponent } from './home/home.component';
     CardSearchComponent,
     UserLoginComponent,
     UserRegisterComponent,
-    HomeComponent
+    HomeComponent,
+    CollectionComponent
   ],
   imports: [
     BrowserModule,
