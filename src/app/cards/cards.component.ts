@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CardsComponent implements OnInit {
   cards: Card[];
+  card:Card;
 
   constructor(private cardService: CardService, private router: Router, private tokenStorage: TokenStorageService) { }
 
@@ -28,13 +29,18 @@ export class CardsComponent implements OnInit {
     .subscribe(cards => this.cards = cards);
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.cardService.addCard({ name } as Card)
-      .subscribe(card => {
-        this.cards.push(card);
+  add(name: string, description:string): void {
+    this.card = <Card>{name:name.trim(), description:description.trim(),userWhoPostedIt:""};
+    
+    if (!name&&!description) { return; }
+    this.cardService.addCard(this.card)
+      .subscribe(data => {
+        this.reloadPage();
       });
+  }
+
+  reloadPage(): void {
+    window.location.reload();
   }
 
 }

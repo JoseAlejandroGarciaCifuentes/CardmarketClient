@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Collection } from '../Collection';
+import { Collection } from '../collection';
 import { CollectionService } from '../collection.service';
 import { TokenStorageService } from '../token-storage.service';
 import { Router } from '@angular/router'; 

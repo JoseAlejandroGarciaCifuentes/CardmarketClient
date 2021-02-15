@@ -1,15 +1,18 @@
-<h2>My Cards</h2>
-
+<h3>Register new card</h3>
 <div>
-  <label>Card name:
+  <label>Name:
     <input #cardName />
   </label>
+  <label>Description:
+    <input #cardDescription />
+  </label>
   <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(cardName.value); cardName.value=''">
+  <button (click)="add(cardName.value, cardDescription.value); cardName.value=''; cardDescription.value='';">
     add
   </button>
 </div>
 
+<h3>My Cards</h3>
 <ul class="cards">
   <li *ngFor="let card of cards">
     <a routerLink="/detail/{{card.name}}">

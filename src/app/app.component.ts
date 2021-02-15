@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TokenStorageService } from './token-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Cardmarket';
+
+  constructor(private tokenStorage: TokenStorageService){}
+
+  ngOnDestroy(): void {
+    this.tokenStorage.signOut();
+  }
+  
 }

@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Collection } from './Collection';
+import { Collection } from './collection';
 import { MessageService } from './message.service';
 
 @Injectable({

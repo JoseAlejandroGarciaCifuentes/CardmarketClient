@@ -19,20 +19,15 @@ export class UserLoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  roles: string[] = [];
+  role: string = "";
 
   constructor(private userService:UserService, private router: Router, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
     }
-    
   }
-  ngOnDestroy(): void {
-    //sessionStorage.clear();
-}
 
   onSubmit(): void {
     const { username, password } = this.form;
@@ -41,13 +36,10 @@ export class UserLoginComponent implements OnInit {
       data => {
         console.log(data);
         if(data!='700' && data!='600'){
-          this.tokenStorage.saveToken(data.accessToken);
-          this.tokenStorage.saveUser(data);
-
+          this.tokenStorage.saveToken(data);
           this.isLoginFailed = false;
           this.isLoggedIn = true;
-          this.roles = this.tokenStorage.getUser().roles;
-          //this.reloadPage();
+          console.log(this.tokenStorage.getRole().role);
           this.goToDashboard();
         }
         

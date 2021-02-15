@@ -12,7 +12,8 @@ import { MessageService } from './message.service';
 export class CardService {
 
   private getAll = 'http://localhost:8888/Laravel/cardmarket/public/api/cards/all';
-
+  private registerCard = 'http://localhost:8888/Laravel/cardmarket/public/api/cards/register/new-card';
+  
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -29,20 +30,6 @@ export class CardService {
         catchError(this.handleError<Card[]>('getCards', []))
       );
   }
-
-  /** GET hero by id. Return `undefined` when id not found */
-  /*getCardNo404<Data>(id: number): Observable<Card> {
-    const url = `${this.cardsByNameURL}/?id=${id}`;
-    return this.http.get<Card[]>(url)
-      .pipe(
-        map(cards => cards[0]), // returns a {0|1} element array
-        tap(h => {
-          const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} card id=${id}`);
-        }),
-        catchError(this.handleError<Card>(`getCard id=${id}`))
-      );
-  }*/
 
   /** GET card by id. Will 404 if id not found */
   getCard(name: string): Observable<Card> {
@@ -71,7 +58,7 @@ export class CardService {
 
   /** POST: add a new hero to the server */
   addCard(card: Card): Observable<Card> {
-    return this.http.post<Card>(this.getAll, card, this.httpOptions).pipe(
+    return this.http.post<Card>(this.registerCard, card, this.httpOptions).pipe(
       tap((newCard: Card) => this.log(`added card w/ id=${newCard.id}`)),
       catchError(this.handleError<Card>('addCard'))
     );

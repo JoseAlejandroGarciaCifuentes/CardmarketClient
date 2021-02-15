@@ -70,6 +70,12 @@ button.delete {
   background-color: gray !important;
   color: white;
 }
+label{
+  margin: 10px;
+}
+h3{
+  margin: 20px;
+}
 
 
 /*

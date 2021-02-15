@@ -15,6 +15,8 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { HomeComponent } from './home/home.component';
 import { CollectionComponent } from './collection/collection.component';
+import { AuthInterceptor } from './/helpers/auth.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,11 @@ import { CollectionComponent } from './collection/collection.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [MessageService],
+  providers: [MessageService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

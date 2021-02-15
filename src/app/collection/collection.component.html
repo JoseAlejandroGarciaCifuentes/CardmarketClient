@@ -1,1 +1,6 @@
-<p>collection works!</p>
+  <h2>My Collections</h2>
+  <ul class="collections">
+    <li *ngFor="let collection of collections">
+        <span class="badge">{{collection.userWhoPostedIt}}</span> {{collection.name}}
+    </li>
+  </ul>

@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   constructor(private cardService: CardService, private router: Router, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
-    if(this.tokenStorage.getToken() == null){
+    if(!this.tokenStorage.getToken()){
       this.router.navigate(['login']);
 
     }else{
