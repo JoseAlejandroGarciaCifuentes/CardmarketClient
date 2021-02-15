@@ -21,7 +21,7 @@ export class UserLoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private userService:UserService, private router: Router/*private authService: AuthService*/, private tokenStorage: TokenStorageService) { }
+  constructor(private userService:UserService, private router: Router, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -31,7 +31,7 @@ export class UserLoginComponent implements OnInit {
     
   }
   ngOnDestroy(): void {
-    sessionStorage.clear();
+    //sessionStorage.clear();
 }
 
   onSubmit(): void {
@@ -57,21 +57,6 @@ export class UserLoginComponent implements OnInit {
         this.isLoginFailed = true;
       }
     );
-    /*this.authService.login(username, password).subscribe(
-      data => {
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUser(data);
-
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
-      }
-    );*/
   }
 
   goToDashboard() {

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Card } from '../card';
 import { CardService } from '../card.service';
+import { TokenStorageService } from '../token-storage.service';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-cards',
@@ -11,10 +12,15 @@ import { CardService } from '../card.service';
 export class CardsComponent implements OnInit {
   cards: Card[];
 
-  constructor(private cardService: CardService) { }
+  constructor(private cardService: CardService, private router: Router, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
-    this.getCards();
+    if(this.tokenStorage.getToken() == null){
+      this.router.navigate(['login']);
+
+    }else{
+      this.getCards();
+    }
   }
 
   getCards(): void {

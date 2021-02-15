@@ -3,6 +3,8 @@ import { Card } from '../card';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { CardService } from '../card.service';
+import { TokenStorageService } from '../token-storage.service';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-card-detail',
@@ -20,7 +22,9 @@ export class CardDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getCard();
+    
+      this.getCard();
+
   }
 
   getCard(): void {

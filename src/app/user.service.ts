@@ -12,8 +12,8 @@ import { MessageService } from './message.service';
 })
 export class UserService {
 
-  private registerUserUrl = 'http://localhost/Laravel/cardmarket/public/api/users/signup';
-  private loginUserUrl = 'http://localhost/Laravel/cardmarket/public/api/users/login';
+  private registerUserUrl = 'http://localhost:8888/Laravel/cardmarket/public/api/users/signup';
+  private loginUserUrl = 'http://localhost:8888/Laravel/cardmarket/public/api/users/login';
   
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
