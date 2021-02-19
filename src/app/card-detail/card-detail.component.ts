@@ -14,16 +14,20 @@ import { Router } from '@angular/router';
 export class CardDetailComponent implements OnInit {
 
   card: Card;
-
+  isAdmin:boolean;
   constructor(
     private route: ActivatedRoute,
     private cardService: CardService,
-    private location: Location
+    private location: Location,
+    private tokenStorage: TokenStorageService
   ) {}
 
   ngOnInit(): void {
     
       this.getCard();
+      if(this.tokenStorage.getRole().role == "Administrator"){
+        this.isAdmin = true;
+      }
 
   }
 

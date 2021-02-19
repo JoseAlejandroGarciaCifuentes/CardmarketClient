@@ -10,7 +10,7 @@
 </div>
 
 
-<div id="new-card">
+<div id="new-card" *ngIf="isAdmin">
   <h2>Register new card</h2>
   <label>Name:
     <input #cardName />

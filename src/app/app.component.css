@@ -13,9 +13,10 @@ nav a {
 nav a:visited, a:link {
   color: #334953;
 }
-nav a:hover {
-  
+nav a:visited, a:link {
+  color: #334953;
 }
-nav a.active {
-
+nav a:hover {
+  color: #000000;
+  background-color: #D5E7F2;
 }

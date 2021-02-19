@@ -1,17 +1,19 @@
 <h2 class="display-4">{{card.name | uppercase}} Details</h2>
 <div id="detail" *ngIf="card">
     
-    <div><span>id: </span>{{card.id}}</div>
-    <div>
-      <label>Name:
-        <input [(ngModel)]="card.name" placeholder="name"/>
-      </label>
-    </div>
-    <div>
-      <label>Description:
-        <input [(ngModel)]="card.description" placeholder="name"/>
-      </label>
-    </div>
-    <button (click)="save()">Update</button>
-    <button (click)="goBack()">Back</button>
+  <div><span>id: </span>{{card.id}}</div>
+  <div>
+    <label>Name:
+      <input [(ngModel)]="card.name" placeholder="name"/>
+    </label>
   </div>
+  <div>
+    <label>Description:
+      <input [(ngModel)]="card.description" placeholder="name"/>
+    </label>
+  </div>
+
+  <button *ngIf="isAdmin" (click)="save()">Update</button>
+  <button (click)="goBack()">Back</button>
+
+</div>
