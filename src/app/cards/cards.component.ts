@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 export class CardsComponent implements OnInit {
   cards: Card[];
   card:Card;
-  role:String;
   isAdmin:boolean;
 
   constructor(private cardService: CardService, private router: Router, private tokenStorage: TokenStorageService) { }
