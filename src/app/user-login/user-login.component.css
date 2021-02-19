@@ -9,10 +9,19 @@ nav a{
 nav a:visited, a:link {
     color: #334953;
 }
-nav a:hover {
-    color: #039be5;
-    background-color: #CFD8DC;
+
+body{
+    width: 200px;
+    position: relative;
+    transform: translate(-50%, -50%);
+    top:300px;
+    left:50%;
 }
-nav a.active {
-    color: #039be5;
+form, button{
+    margin-top: 20px;
 }
+button{
+    background-color: #d5e7f2;
+    color: black;
+}
+

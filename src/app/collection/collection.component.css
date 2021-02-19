@@ -1,9 +1,10 @@
 /* HeroesComponent's private CSS styles */
 .collections {
-    margin: 0 0 2em 0;
+    margin: auto;
     list-style-type: none;
     padding: 0;
     width: 15em;
+    text-align: left;
   }
   .collections li {
     position: relative;
@@ -11,7 +12,7 @@
     background-color: #EEE;
     margin: .5em;
     padding: .3em 0;
-    height: 1.6em;
+    height: 2.8em;
     border-radius: 4px;
   }
   
@@ -42,7 +43,7 @@
     line-height: 1em;
     position: relative;
     left: -1px;
-    top: -4px;
+    top: -6px;
     height: 1.8em;
     min-width: 16px;
     text-align: right;
@@ -71,7 +72,7 @@
     color: white;
   }
 
-  h2{
+  h1{
       margin: 15px;
   }
   

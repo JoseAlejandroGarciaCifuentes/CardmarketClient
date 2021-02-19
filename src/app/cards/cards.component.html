@@ -1,5 +1,17 @@
-<h3>Register new card</h3>
-<div>
+<h1 class="display-4">My Cards</h1>
+<div class="grid grid-pad">
+  <ul class="cards">
+    <li *ngFor="let card of cards" class="col-1-4">
+      <a routerLink="/detail/{{card.name}}">
+        <span class="badge">{{card.id}}</span> {{card.name}}
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<div id="new-card">
+  <h2>Register new card</h2>
   <label>Name:
     <input #cardName />
   </label>
@@ -8,15 +20,6 @@
   </label>
   <!-- (click) passes input value to add() and then clears the input -->
   <button (click)="add(cardName.value, cardDescription.value); cardName.value=''; cardDescription.value='';">
-    add
+    Add
   </button>
 </div>
-
-<h3>My Cards</h3>
-<ul class="cards">
-  <li *ngFor="let card of cards">
-    <a routerLink="/detail/{{card.name}}">
-      <span class="badge">{{card.userWhoPostedIt}}</span> {{card.name}}
-    </a>
-  </li>
-</ul>

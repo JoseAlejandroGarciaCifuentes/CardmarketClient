@@ -1,11 +1,8 @@
-<h3>Top Cards</h3>
+<h1 class="display-4">Top Cards</h1>
 <div class="grid grid-pad">
   <a *ngFor="let card of cards" class="col-1-4" routerLink="/detail/{{card.name}}">
-    <div class="module card">
+    <div class="module ">
       <h4>{{card.name}}</h4>
     </div>
   </a>
 </div>
-
-<!--<app-messages></app-messages>-->
-

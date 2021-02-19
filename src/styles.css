@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #2A3740;
+    text-align: center;
+}
+
+h1, h2{
+    color: #F2DEA0;
+    text-align: center;
+}
+label{
+    color: white;
+}

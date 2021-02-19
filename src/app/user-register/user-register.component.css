@@ -7,12 +7,27 @@ nav a{
     padding: 10px 10px;
 }
 nav a:visited, a:link {
-    color: #334953;
+    
 }
 nav a:hover {
-    color: #039be5;
-    background-color: #CFD8DC;
+    
 }
 nav a.active {
-    color: #039be5;
+    
+}
+body{
+    width: 200px;
+    position: relative;
+    transform: translate(-50%, -50%);
+    top:350px;
+    left:50%;
+}
+
+form, button{
+    margin-top: 20px;
+}
+
+button{
+    background-color: #d5e7f2;
+    color: black;
 }

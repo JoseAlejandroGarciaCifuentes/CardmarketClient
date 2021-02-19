@@ -1,6 +1,5 @@
 /* DashboardComponent's private CSS styles */
 [class*='col-'] {
-  float: left;
   padding-right: 20px;
   padding-bottom: 20px;
 }
@@ -13,27 +12,24 @@ a {
 *, *::after, *::before {
   box-sizing: border-box;
 }
-h3 {
-  text-align: center;
-  margin:20px;
-}
-h4 {
-  position: relative;
-}
-.grid {
-  margin: 0;
+h1{
+  margin: 20px 0px;
 }
 .col-1-4 {
   width: 25%;
 }
+div{
+  max-width: 500px;
+  margin: 0 auto 0 auto!important;
+}
 .module {
   padding: 20px;
-  text-align: center;
   color: #eee;
   max-height: 120px;
-  min-width: 120px;
+  max-width: 500px;
   background-color: #3f525c;
   border-radius: 2px;
+  
 }
 .module:hover {
   background-color: #EEE;

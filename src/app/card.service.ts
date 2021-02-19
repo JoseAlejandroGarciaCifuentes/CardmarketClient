@@ -13,7 +13,8 @@ export class CardService {
 
   private getAll = 'http://localhost:8888/Laravel/cardmarket/public/api/cards/all';
   private registerCard = 'http://localhost:8888/Laravel/cardmarket/public/api/cards/register/new-card';
-  
+  private editCard= 'http://localhost:8888/Laravel/cardmarket/public/api/cards/edit/';
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -67,7 +68,7 @@ export class CardService {
 
   /** PUT: update the card on the server */
   updateCard(card: Card): Observable<any> {
-    return this.http.put(this.getAll, card, this.httpOptions).pipe(
+    return this.http.post(this.editCard + card, card, this.httpOptions).pipe(
       tap(_ => this.log(`updated card id=${card.id}`)),
       catchError(this.handleError<any>('updateCard'))
     );
