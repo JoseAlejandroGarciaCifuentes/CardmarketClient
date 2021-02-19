@@ -22,7 +22,7 @@ export class CollectionService {
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
-    /** GET heroes from the server */
+    /** GET collections from the server */
   getCollections(): Observable<Collection[]> {
     return this.http.get<Collection[]>(this.getAll)
       .pipe(

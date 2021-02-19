@@ -23,7 +23,7 @@ export class CardService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
-  /** GET heroes from the server */
+  /** GET cards from the server */
   getCards(): Observable<Card[]> {
     return this.http.get<Card[]>(this.getAll)
       .pipe(
@@ -68,7 +68,7 @@ export class CardService {
 
   /** PUT: update the card on the server */
   updateCard(card: Card): Observable<any> {
-    return this.http.post(this.editCard + card, card, this.httpOptions).pipe(
+    return this.http.post(this.editCard + card.id, card, this.httpOptions).pipe(
       tap(_ => this.log(`updated card id=${card.id}`)),
       catchError(this.handleError<any>('updateCard'))
     );
